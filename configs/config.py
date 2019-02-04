@@ -8,24 +8,31 @@ Config manager for etl
 import logging
 import os
 
-logger = logging.getLogger(__name__)
+logging.getLogger(__name__)
 
 class Config(object):
     pass
 
 class DevelopmentConfig(Config):
-    logger.info("Loaded DEV configs")
+    logging.info("Loaded DEV configs")
     DEBUG = True
     AWS_REGION = "us-east-1"
 
     download_folder = os.getcwd() + os.sep + "data"
-    file_url = ""
+    file_url = "xxxxxxxxxx"
 
     LOG_LEVEL = logging.INFO
     LOGS_ROOT = "/logs"
 
-    postgres_db = {}
+    batch_size = 200
 
+    pg_db = {"pg_data_lake": {"dbname": "xxxx",
+                              "user": "xxxx",
+                              "host": "xxxxxxx",
+                              "password": "xxxxxx",
+                              "port": "xxxxxxxxx"
+
+                                 }}
 
 
 class ProductionConfig(Config):
